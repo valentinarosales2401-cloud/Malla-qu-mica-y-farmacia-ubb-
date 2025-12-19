@@ -1,1 +1,143 @@
+:root {
+    --bg-color: #f4f6f8;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --primary-pink: #d81b60; /* Rosa fuerte */
+    --light-pink: #fce4ec;   /* Rosa suave */
+    --hover-pink: #f8bbd0;
+    --grey-border: #e0e0e0;
+    --success-color: #d81b60; /* Usamos el rosa como color de "aprobado" */
+    --locked-color: #9e9e9e;
+}
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--primary-pink);
+    font-weight: 300;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.btn-reset {
+    background: transparent;
+    border: 1px solid var(--primary-pink);
+    color: var(--primary-pink);
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+}
+
+.btn-reset:hover {
+    background: var(--primary-pink);
+    color: white;
+}
+
+/* Contenedor principal de la malla (Scroll horizontal) */
+#malla-container {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    gap: 15px;
+    align-items: flex-start; /* Alinear columnas arriba */
+}
+
+/* Estilo de la columna del semestre */
+.semester-column {
+    min-width: 220px;
+    max-width: 220px;
+    background-color: transparent;
+    flex-shrink: 0;
+}
+
+.semester-title {
+    text-align: center;
+    background-color: #455a64; /* Gris azulado oscuro para encabezados */
+    color: white;
+    padding: 10px;
+    border-radius: 6px 6px 0 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* Estilo de la tarjeta del ramo */
+.subject-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--grey-border);
+    border-left: 4px solid var(--primary-pink);
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: relative;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.subject-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: var(--light-pink);
+}
+
+/* Estado Aprobado */
+.subject-card.approved {
+    background-color: var(--primary-pink);
+    color: white;
+    text-decoration: line-through;
+    opacity: 0.8;
+    border-left-color: #880e4f; /* Borde más oscuro */
+}
+
+.subject-card.approved:hover {
+    background-color: #c2185b;
+}
+
+/* Scrollbar personalizado para navegadores Webkit */
+#malla-container::-webkit-scrollbar {
+    height: 10px;
+}
+#malla-container::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 5px;
+}
+#malla-container::-webkit-scrollbar-thumb {
+    background: var(--primary-pink);
+    border-radius: 5px;
+}
+
+/* Responsividad simple */
+@media (max-width: 768px) {
+    h1 { font-size: 1.5rem; }
+}
